@@ -1,0 +1,24 @@
+{
+  "name": "node-mattermost",
+  "version": "0.0.1",
+  "description": "Send and receive Mattermost Webhooks easily!",
+  "keywords": [
+      "mattermost",
+      "slack",
+      "webhook",
+      "integration"
+  ],
+  "main": "mattermost.js",
+  "dependencies": {
+    "deferred": "0.7.1",
+    "request": "~2.x"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git@github.com:jonathanwiesel/node-mattermost.git",
+  "author": "Jonathan Wiesel <jonathanwiesel@gmail.com>",
+  "license": "BSD",
+  "readmeFilename": "readme.md"
+}
