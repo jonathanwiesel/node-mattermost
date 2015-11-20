@@ -65,21 +65,30 @@ along with a callback function responsible for returning a response.
 From inside an Express.js route, this is as easy as passing in req.body:
 
 ```
-app.post('/yesman',function(req,res) {
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
 
-	var reply = mattermost.respond(req.body,function(hook) {
+var Mattermost = require('node-mattermost');
+var mattermost = new Mattermost();
 
-		return {
-			text: 'Good point, ' + hook.user_name,
-			username: 'Bot'
-		};
+app.use(bodyParser.urlencoded({ extended: true }));
 
-	});
+app.post('/', function(req, res) {
 
-	res.json(reply);
+    var reply = mattermost.respond(req.body, function(hook) {
 
+        return {
+            text: 'Good point, ' + hook.user_name,
+            username: 'Bot'
+        };
+
+    });
+
+    res.json(reply);
 });
 
+app.listen(8080);
 ```
 
 ### Notes
