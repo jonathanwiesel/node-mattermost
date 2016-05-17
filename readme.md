@@ -42,7 +42,7 @@ mattermost.send({
 ```
 
 You can also specify an emoji icon, a url to a custom icon, attachments,
-and any of the other options listed [here](https://github.com/mattermost/platform/blob/master/doc/integrations/webhooks/Incoming-Webhooks.md).
+and any of the other options listed [here](http://docs.mattermost.com/developer/webhooks-incoming.html).
 
 
 ```
