@@ -50,6 +50,7 @@ mattermost.send({
 	text: 'Howdy!',
 	channel: '#foo',
 	username: 'Bot',
+	icon_url: 'http://www.foo.com/image.png',
 	icon_emoji: 'taco',
 	attachments: attachment_array,
 	unfurl_links: true,
