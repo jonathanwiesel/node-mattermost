@@ -3,9 +3,9 @@
 var request  = require('request');
 var deferred = require('deferred');
 
-function Mattermost(hook_url, http_proxy_options) {
+function Mattermost(hook_url, options) {
   this.hook_url = hook_url;
-  this.http_proxy_options = http_proxy_options;
+  this.options = options;
 }
 
 Mattermost.prototype.send = function(message, cb) {
@@ -27,11 +27,15 @@ Mattermost.prototype.send = function(message, cb) {
   if (message.unfurl_links) { body.unfurl_links = message.unfurl_links; }
   if (message.link_names) { body.link_names = message.link_names; }
 
-  var option = {
-    proxy: (this.http_proxy_options && this.http_proxy_options.proxy) || process.env.https_proxy || process.env.http_proxy,
-    url:   command,
-    json:  body
-  };
+  if (this.options) {
+    var option = this.options
+  } else {
+    var option = {}
+  }
+  option.proxy = option.proxy || process.env.https_proxy || process.env.http_proxy;
+  option.url = command;
+  option.json = body;
+
 
   if(!cb) var d = deferred();
 

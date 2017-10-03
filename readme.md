@@ -31,6 +31,10 @@ or pass in the optional third option:
 var mattermost = new Mattermost(hook_url,{proxy: http_proxy});
 ```
 
+The options object otherwise follows the options object of [request](https://github.com/request/request).
+The url option will be set to the hook_url, and the json option will be set to the first object passed to mattermost.send
+
+
 To send a message, call mattermost.send:
 
 ```
